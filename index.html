@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+    <title>LuckyHit</title>
+    <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0, user-scalable=no, shrink-to-fit=no">
+    <style>
+      body, html {
+        margin: 0;
+        padding: 0;
+        overflow: hidden;
+        height: 100%;
+        width: 100%;
+      }
+      #unity-canvas {
+        display: block;
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+      }
+    </style>
+  </head>
+  <body>
+    <canvas id="unity-canvas"></canvas>
+    
+    <script src="Build/LuckyHit_Web.loader.js"></script>
+    <script>
+      function goFullScreen() {
+        var canvas = document.getElementById('unity-canvas');
+        if (canvas.requestFullscreen) {
+          canvas.requestFullscreen();
+        } else if (canvas.mozRequestFullScreen) { // Firefox
+          canvas.mozRequestFullScreen();
+        } else if (canvas.webkitRequestFullscreen) { // Chrome, Safari, Opera
+          canvas.webkitRequestFullscreen();
+        } else if (canvas.msRequestFullscreen) { // IE/Edge
+          canvas.msRequestFullscreen();
+        }
+      }
+
+      function forceLandscape() {
+        if (window.screen.orientation) {
+          window.screen.orientation.lock('landscape').catch(function() {
+            console.log('Failed to lock screen orientation.');
+          });
+        }
+      }
+
+      // Creating Unity Instance
+      createUnityInstance(document.querySelector("#unity-canvas"), {
+        dataUrl: "Build/LuckyHit_Web.data",
+        frameworkUrl: "Build/LuckyHit_Web.framework.js",
+        codeUrl: "Build/LuckyHit_Web.wasm",
+        streamingAssetsUrl: "StreamingAssets",
+        companyName: "Sisu",
+        productName: "LuckyHit",
+        productVersion: "0.0",
+      }).then((unityInstance) => {
+        // Trigger fullscreen and landscape orientation on game start
+        goFullScreen();
+        forceLandscape();
+      });
+    </script>
+  </body>
+</html>
