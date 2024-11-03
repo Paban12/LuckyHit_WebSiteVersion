@@ -1,0 +1,124 @@
+body {
+  background-image: url(images/bg_web.jpg);
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+}
+
+.adobeBtn {
+  width: 75px;
+  width: 150px;
+  float: right;
+}
+
+.instructionCard {
+  width: 100%;
+  position: fixed;
+  top: 43%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.instructbox {
+  background-color: rgba(0, 0, 0, 0.5);
+  border: 2px solid red;
+  border-radius: 20px;
+  width: 40%;
+  padding: 5px;
+}
+
+p {
+  color: white;
+  font-family: verdana;
+  font-size: 15px;
+  font-weight: bold;
+  line-height: 10px;
+}
+
+.buttonCard {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+  text-align: center;
+}
+
+.downloadBtn {
+  width: 80%;
+}
+
+.playNowBtn {
+  width: 70%;
+  margin-top: 5px;
+}
+
+.adultImg {
+  width: 70%;
+}
+
+@media only screen and (min-width: 1041px) and (max-width: 1300px) {
+  .instructbox {
+    width: 50%;
+  }
+}
+
+@media only screen and (min-width: 601px) and (max-width: 1040px) {
+  .instructbox {
+    width: 60%;
+  }
+
+  .downloadBtn {
+    width: 60%;
+  }
+
+  p {
+    font-size: 13px;
+    line-height: 10px;
+  }
+
+  .adobeBtn {
+    height: 50px;
+    width: 100px;
+  }
+
+  .playNowBtn {
+    width: 70%;
+  }
+
+  .adultImg {
+    width: 60%;
+  }
+}
+
+/*For tabs and large mobiles*/
+@media only screen and (max-width: 600px) {
+  .pcBtn {
+    display: none;
+  }
+
+  .instructbox {
+    width: 80%;
+  }
+
+  p {
+    font-size: 12px;
+    line-height: normal;
+  }
+
+  .adobeBtn {
+    height: 40px;
+    width: 80px;
+  }
+
+  .playNowBtn {
+    width: 80%;
+  }
+
+  .adultImg {
+    width: 80%;
+  }
+}
